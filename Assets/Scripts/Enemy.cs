@@ -7,7 +7,7 @@ public class Enemy : Character
 
     public virtual void ChooseAbility()
     {
-        int rng = Random.Range(1, 1);
+        int rng = Random.Range(1, 4);
         switch (rng)
         {
             case 1:
@@ -27,7 +27,7 @@ public class Enemy : Character
 
     public void FirstAbility()
     {
-        m_CharAbilities.ChargingAbility();
+        m_CharAbilities.AttackAbility(m_Damage);
     }
     public void SecondAbility()
     {
@@ -45,6 +45,4 @@ public class Enemy : Character
     {
         m_CharAbilities.ChargedAttack(m_ChargeDamage);
     }
-
-    //make 2 enemy, virtual/override.
 }

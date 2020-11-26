@@ -36,6 +36,9 @@ public class BattleManagerSingleton : MonoBehaviour
 
     public static BattleManagerSingleton instance;
 
+    private Scene m_CurrentScene;
+    private string sceneString;
+
     public static BattleManagerSingleton Instance
     {
         get
@@ -56,6 +59,8 @@ public class BattleManagerSingleton : MonoBehaviour
 
     public void Start()
     {
+        m_CurrentScene = SceneManager.GetActiveScene();
+        sceneString = m_CurrentScene.name;
         state = BattleState.START;
         StartCoroutine(SetupBattle());
         m_CharacterAbilities = new CharacterAbilities();
@@ -63,28 +68,56 @@ public class BattleManagerSingleton : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
-        m_PlayerActions.gameObject.SetActive(false);
-        GameObject playerGO = Instantiate(m_PlayerPrefab, m_PlayerStation);
-        m_PlayerChar = playerGO.GetComponent<Player>();
-        m_PlayerInst = playerGO;
+        if(sceneString == ("RedMonsterScene"))
+        {
+            m_PlayerActions.gameObject.SetActive(false);
+            GameObject playerGO = Instantiate(m_PlayerPrefab, m_PlayerStation);
+            m_PlayerChar = playerGO.GetComponent<Player>();
+            m_PlayerInst = playerGO;
 
-        GameObject enemyGO = Instantiate(m_RedEnemyPrefab, m_EnemyStation);
-        m_EnemyChar = enemyGO.GetComponent<Enemy>();
-        m_EnemyInst = enemyGO;
+            GameObject enemyGO = Instantiate(m_RedEnemyPrefab, m_EnemyStation);
+            m_EnemyChar = enemyGO.GetComponent<Enemy>();
+            m_EnemyInst = enemyGO;
+            m_dialogueText.text = "A wild " + m_EnemyChar.m_CharacterName + " wants to fight!";
 
-        m_dialogueText.text = "A wild " + m_EnemyChar.m_CharacterName + " wants to fight!";
-        
-        m_PlayerHUD.SetHUD(m_PlayerChar.GetComponent<Player>());
-        m_EnemyHUD.SetHUD(m_EnemyChar.GetComponent<Enemy>());
-        
+            m_PlayerHUD.SetHUD(m_PlayerChar.GetComponent<Player>());
+            m_EnemyHUD.SetHUD(m_EnemyChar.GetComponent<Enemy>());
 
-        yield return new WaitForSeconds(2f);
 
-        m_dialogueText.text = ("It's your move ") + m_PlayerChar.m_CharacterName;
+            yield return new WaitForSeconds(2f);
 
-        StateUpdate();
+            m_dialogueText.text = ("It's your move ") + m_PlayerChar.m_CharacterName;
 
-        m_PlayerActions.gameObject.SetActive(true);
+            StateUpdate();
+
+            m_PlayerActions.gameObject.SetActive(true);
+        }
+        else if (sceneString == ("BlueMonsterScene"))
+        {
+            m_PlayerActions.gameObject.SetActive(false);
+            GameObject playerGO = Instantiate(m_PlayerPrefab, m_PlayerStation);
+            m_PlayerChar = playerGO.GetComponent<Player>();
+            m_PlayerInst = playerGO;
+
+            GameObject enemyGO = Instantiate(m_BlueEnemyPrefab, m_EnemyStation);
+            m_EnemyChar = enemyGO.GetComponent<Enemy>();
+            m_EnemyInst = enemyGO;
+            m_dialogueText.text = "A wild " + m_EnemyChar.m_CharacterName + " wants to fight!";
+
+            m_PlayerHUD.SetHUD(m_PlayerChar.GetComponent<Player>());
+            m_EnemyHUD.SetHUD(m_EnemyChar.GetComponent<Enemy>());
+
+
+            yield return new WaitForSeconds(2f);
+
+            m_dialogueText.text = ("It's your move ") + m_PlayerChar.m_CharacterName;
+
+            StateUpdate();
+
+            m_PlayerActions.gameObject.SetActive(true);
+        }
+
+
     }
 
     IEnumerator PlayerFinishedTurn()

@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8802119221698172990}
-  - component: {fileID: 4797529198726942003}
+  - component: {fileID: 909775757927090763}
   m_Layer: 0
   m_Name: EnemyB
   m_TagString: Untagged
@@ -113,7 +113,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4797529198726942003
+--- !u!114 &909775757927090763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,15 +122,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6313271045349863099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2db4af413683f54785f57e46ba4b0e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f6807f9bc016674d95bb508df724f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHP: 60
-  m_CurrentHP: 60
-  m_Damage: 10
-  m_ChargeDamage: 35
-  m_Level: 78
-  m_HealValue: 25
+  m_MaxHP: 80
+  m_CurrentHP: 80
+  m_Damage: 15
+  m_ChargeDamage: 30
+  m_HealValue: 20
+  m_Level: 73
   m_CharacterName: Blue Monster
   m_IsDodging: 0
   m_IsCharging: 0

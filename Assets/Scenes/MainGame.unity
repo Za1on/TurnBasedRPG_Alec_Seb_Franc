@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 536085093}
   - component: {fileID: 536085092}
   - component: {fileID: 536085091}
-  - component: {fileID: 536085090}
+  - component: {fileID: 536085094}
   m_Layer: 0
   m_Name: RedMonsterTriggerScene
   m_TagString: RedMonster
@@ -384,20 +384,6 @@ Transform:
   m_Father: {fileID: 977767227}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &536085090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536085088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 334db46b2fb7bc447aeef05151283133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerMove: {fileID: 3659057442354725639}
-  m_FightSelection: {fileID: 3659057442333225071}
 --- !u!65 &536085091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -460,6 +446,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536085088}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &536085094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536085088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6b574f7001bd0459276e48a513fe61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CanvasOpen: {fileID: 3659057442333225071}
+  m_PlayerMove: {fileID: 3659057442354725639}
 --- !u!1 &543402477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,10 +1163,10 @@ GameObject:
   - component: {fileID: 1537107419}
   - component: {fileID: 1537107418}
   - component: {fileID: 1537107417}
-  - component: {fileID: 1537107416}
+  - component: {fileID: 1537107420}
   m_Layer: 0
   m_Name: BlueMonsterTriggerScene
-  m_TagString: Untagged
+  m_TagString: BlueMonster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1185,20 +1185,6 @@ Transform:
   m_Father: {fileID: 977767227}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1537107416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1537107414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 334db46b2fb7bc447aeef05151283133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerMove: {fileID: 3659057442354725639}
-  m_FightSelection: {fileID: 3659057442333225071}
 --- !u!65 &1537107417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1261,6 +1247,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537107414}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1537107420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537107414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6b574f7001bd0459276e48a513fe61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CanvasOpen: {fileID: 3659057442333225071}
+  m_PlayerMove: {fileID: 3659057442354725639}
 --- !u!1 &1541111859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,9 +1591,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1537107416}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: GiveControlBack
+      - m_Target: {fileID: 1537107420}
+        m_TargetAssemblyTypeName: FightSelecTrigger, Assembly-CSharp
+        m_MethodName: QuitFightSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1984,9 +1984,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1537107416}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: LoadBlueMonsterScene
+      - m_Target: {fileID: 1537107420}
+        m_TargetAssemblyTypeName: FightSelecTrigger, Assembly-CSharp
+        m_MethodName: FightBlueMonster
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2307,9 +2307,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536085090}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: LoadRedMonsterScene
+      - m_Target: {fileID: 536085094}
+        m_TargetAssemblyTypeName: FightSelecTrigger, Assembly-CSharp
+        m_MethodName: FightRedMonster
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2540,7 +2540,7 @@ GameObject:
   - component: {fileID: 3659057442354725637}
   - component: {fileID: 3659057442354725638}
   - component: {fileID: 3659057442354725641}
-  - component: {fileID: 3659057442354725642}
+  - component: {fileID: 3659057442354725640}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2548,6 +2548,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3659057442354725640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659057442354725639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8682cb5f7dd4a4148a9b091794fb178c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerRigid: {fileID: 3659057442354725641}
+  m_MovementSpeed: 1000
 --- !u!54 &3659057442354725641
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2564,20 +2578,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &3659057442354725642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3659057442354725639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63a87eb4834785c4ea54851d78eb5563, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerRigid: {fileID: 3659057442354725641}
-  movementSpeed: 2000
 --- !u!4 &3659057442354725643
 Transform:
   m_ObjectHideFlags: 0
