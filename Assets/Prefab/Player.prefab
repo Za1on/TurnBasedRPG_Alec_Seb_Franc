@@ -49,10 +49,24 @@ MonoBehaviour:
   m_Damage: 10
   m_ChargeDamage: 20
   m_HealValue: 20
-  m_Level: 999
+  m_Level: 50
   m_CharacterName: Samus Aran
   m_IsDodging: 0
   m_IsCharging: 0
+  m_PlayerPosition: {fileID: 3854368017643702774}
+  m_ChargePrefab: {fileID: 5330289569080181570, guid: b795be6d1acd6614bbea454032fca736,
+    type: 3}
+  m_BeamPrefab: {fileID: 4486878460332816105, guid: d87071e0b118dd4449cc8e69694291f5,
+    type: 3}
+  m_HealingIndic: {fileID: 3961294712873403926, guid: b75c346e8d867e94f861da3197ab4faf,
+    type: 3}
+  m_PlyrAnim: {fileID: 1246212633070837848}
+  m_Attacking: 0
+  m_Charging: 0
+  m_ReleaseChargeAttack: 0
+  m_Dodging: 0
+  m_Healing: 0
+  m_Damaged: 0
 --- !u!1 &7020228151910695305
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,8 +78,9 @@ GameObject:
   - component: {fileID: 114505902228056245}
   - component: {fileID: 772317197016413012}
   - component: {fileID: 5044102695524962428}
+  - component: {fileID: 1246212633070837848}
   m_Layer: 0
-  m_Name: EnemySprite
+  m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +94,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7020228151910695305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.56, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3854368017643702774}
@@ -134,3 +149,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &1246212633070837848
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020228151910695305}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6bd7a95c53241ed4c82882413623c53f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

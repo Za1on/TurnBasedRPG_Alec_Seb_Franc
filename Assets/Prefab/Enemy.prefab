@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Damage: 10
   m_ChargeDamage: 20
   m_HealValue: 10
-  m_Level: 57
+  m_Level: 50
   m_CharacterName: Red Monster
   m_IsDodging: 0
   m_IsCharging: 0
