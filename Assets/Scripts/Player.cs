@@ -28,6 +28,10 @@ public class Player : Character
     {
         m_PlyrAnim = GetComponent<Animator>();
     }
+    public void Update()
+    {
+        ManageAnim();
+    }
     public void FirstAbility()
     {
         Debug.Log("Im Attacking");
@@ -43,16 +47,19 @@ public class Player : Character
     public void ThirdAbility()
     {
         Debug.Log("Im Dodging");
+        m_Dodging = true;
         m_CharAbilities.DodgeAbility();
     }
     public void FourthAbility()
     {
         Debug.Log("Im Charging");
+        m_Charging = true;
         m_CharAbilities.ChargingAbility();
     }
     public void ChargeAttack()
     {
         Debug.Log("Release Charge Attack");
+        m_ReleaseChargeAttack = true;
         m_CharAbilities.ChargedAttack(m_ChargeDamage);
     }
     public void ManageAnim()
@@ -60,14 +67,17 @@ public class Player : Character
         if(m_Charging)
         {
             Instantiate(m_ChargePrefab,m_PlayerPosition);
+            m_Charging = false;
         }
         if(m_ReleaseChargeAttack)
         {
             Instantiate(m_BeamPrefab, m_PlayerPosition);
+            m_ReleaseChargeAttack = false;
         }
         if(m_Healing)
         {
             Instantiate(m_HealingIndic, m_PlayerPosition);
+            m_Healing = false;
         }
         if(m_Dodging)
         {
@@ -80,6 +90,7 @@ public class Player : Character
         if(m_Attacking)
         {
             m_PlyrAnim.SetBool("Attacking", true);
+            m_Attacking = false;
         }
     }
 }
