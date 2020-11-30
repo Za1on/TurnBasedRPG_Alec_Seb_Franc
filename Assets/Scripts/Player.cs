@@ -30,23 +30,29 @@ public class Player : Character
     }
     public void FirstAbility()
     {
+        Debug.Log("Im Attacking");
         m_Attacking = true;
         m_CharAbilities.AttackAbility(m_Damage);
     }
     public void SecondAbility()
     {
+        Debug.Log("Im Healing");
+        m_Healing = true;
         m_CharAbilities.HealAbility(m_HealValue);
     }
     public void ThirdAbility()
     {
+        Debug.Log("Im Dodging");
         m_CharAbilities.DodgeAbility();
     }
     public void FourthAbility()
     {
+        Debug.Log("Im Charging");
         m_CharAbilities.ChargingAbility();
     }
     public void ChargeAttack()
     {
+        Debug.Log("Release Charge Attack");
         m_CharAbilities.ChargedAttack(m_ChargeDamage);
     }
     public void ManageAnim()
@@ -59,6 +65,10 @@ public class Player : Character
         {
             Instantiate(m_BeamPrefab, m_PlayerPosition);
         }
+        if(m_Healing)
+        {
+            Instantiate(m_HealingIndic, m_PlayerPosition);
+        }
         if(m_Dodging)
         {
             m_PlyrAnim.SetTrigger("Evading");
@@ -69,7 +79,7 @@ public class Player : Character
         }
         if(m_Attacking)
         {
-            m_PlyrAnim.SetTrigger("AttackNow");
+            m_PlyrAnim.SetBool("Attacking", true);
         }
     }
 }
