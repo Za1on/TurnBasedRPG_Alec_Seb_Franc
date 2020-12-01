@@ -13,6 +13,7 @@ public class CharacterAbilities
         if (!targetCharacter.m_IsDodging)
         {
             targetCharacter.m_CurrentHP -= dmg;
+            
             m_LastAbility = " Attack ability";
         }
         else
