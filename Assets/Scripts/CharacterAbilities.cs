@@ -13,8 +13,16 @@ public class CharacterAbilities
         if (!targetCharacter.m_IsDodging)
         {
             targetCharacter.m_CurrentHP -= dmg;
-            
+            //targetCharacter.TakeDmg();
             m_LastAbility = " Attack ability";
+            if(targetCharacter.tag == "Player")
+            {
+                targetCharacter.GetComponent<Player>().TakeDmg();
+            }
+            else
+            {
+                targetCharacter.GetComponent<Enemy>().TakeDmg();
+            }
         }
         else
         {
@@ -56,11 +64,20 @@ public class CharacterAbilities
         {
             targetCharacter.m_CurrentHP -= _CDmg;
             m_LastAbility = " Charge attack unleashed!";
+            if (targetCharacter.tag == "Player")
+            {
+                targetCharacter.GetComponent<Player>().TakeDmg();
+            }
+            else
+            {
+                targetCharacter.GetComponent<Enemy>().TakeDmg();
+            }
         }
         else
         {
             targetCharacter.m_IsDodging = false;
             m_LastAbility = " Attack ability but the opposing dodged!";
         }
+       
     }
 }

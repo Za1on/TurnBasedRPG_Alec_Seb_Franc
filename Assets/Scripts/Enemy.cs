@@ -18,12 +18,6 @@ public class Enemy : Character
     bool m_Dodging;
     [SerializeField]
     bool m_Healing;
-    [SerializeField]
-    bool m_Damaged;
-    public void Awake()
-    {
-        m_EnemyAnim = GetComponent<Animator>();
-    }
     public void Update()
     {
         ManageAnim();
@@ -107,4 +101,8 @@ public class Enemy : Character
             m_HealingIndic.Play();
         }
     }
- }
+    public void TakeDmg()
+    {
+        m_EnemyAnim.SetTrigger("Dmged");
+    }
+}

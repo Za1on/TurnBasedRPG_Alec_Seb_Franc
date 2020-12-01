@@ -25,5 +25,6 @@ public class Character : MonoBehaviour
     {
         m_CharAbilities = new CharacterAbilities();
     }
+    
 
 }

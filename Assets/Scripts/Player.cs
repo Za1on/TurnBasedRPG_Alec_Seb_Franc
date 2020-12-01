@@ -18,23 +18,11 @@ public class Player : Character
     bool m_Dodging;
     [SerializeField]
     bool m_Healing;
-    [SerializeField]
-    bool m_Damaged;
-    [SerializeField]
-    float m_RealCurrentHp;
 
-    public void Awake()
-    {
-        m_PlyrAnim = GetComponent<Animator>();
-    }
+   
     public void Update()
     {      
         ManageAnim();
-        m_RealCurrentHp = m_CurrentHP;
-        if(m_CurrentHP == m_RealCurrentHp)
-        {
-            //Play Damage Animation
-        }
     }
     public void FirstAbility()
     {
@@ -88,17 +76,17 @@ public class Player : Character
         {
             m_Dodging = false;
             m_PlyrAnim.SetTrigger("Evading");
-            
         }    
-        if(m_Damaged)
-        {
-            m_PlyrAnim.SetTrigger("Damaged");
-        }
         if(m_Attacking)
         {
             m_Attacking = false;
             m_PlyrAnim.SetTrigger("AttackNow");
         }
     }
-   
+    public void TakeDmg()
+    {
+        m_PlyrAnim.SetTrigger("Damaged");
+        // Shake Camera
+    }
+
 }
